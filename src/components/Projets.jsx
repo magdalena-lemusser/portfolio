@@ -32,12 +32,12 @@ export default function Projets() {
   return (
     <section
       id="projets"
-      className="min-h-screen bg-gray-100 flex flex-col items-center justify-center py-16 px-4 space-y-10"
+      className="min-h-screen bg-gray-50 flex flex-col items-center py-16 px-4 space-y-10"
     >
-      <h2 className="text-4xl font-bold mb-12">Mes projets</h2>
-      <div className="flex flex-col gap-12 w-full max-w-none">
-        {projects.map(({ title, images }, index) => (
-          <ProjectCard key={index} title={title} images={images} />
+      <h2 className="text-4xl font-bold text-gray-800 mb-12">Mes projets</h2>
+      <div className="flex flex-col gap-12 w-full max-w-6xl">
+        {projects.map((project, index) => (
+          <ProjectCard key={index} {...project} />
         ))}
       </div>
     </section>

@@ -13,20 +13,23 @@ export default function APropos() {
             <span className="block h-0.5 bg-gray-300 mt-2 w-24 rounded"></span>
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            Passionnée par la traduction et la localisation, je transforme les
-            mots en passerelles entre cultures. Mon objectif est de rendre
-            chaque texte aussi fluide et naturel que s’il avait été pensé dans
-            la langue cible.
+            Docteure en linguistique et polyglotte maîtrisant couramment quatre
+            langues (espagnol, français, anglais, japonais), j’ai consacré ma
+            carrière à l’étude de la richesse et de la diversité linguistique à
+            travers le monde.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            Avec un esprit curieux et une rigueur professionnelle, je m’investis
-            dans chaque projet pour offrir une expérience authentique et
-            impactante.
+            Récemment formée au développement web, je mets aujourd’hui mes
+            compétences techniques au service du traitement des données, de la
+            création d’outils interactifs et de la communication scientifique.
+            Mon objectif est de contribuer activement à la recherche, au
+            développement d’outils innovants, ainsi qu’à la diffusion accessible
+            des connaissances auprès du grand public.
           </p>
         </div>
         <div className="overflow-hidden rounded-2xl shadow-md w-full h-64 lg:h-96">
           <img
-            src="public/screenshots/portrait.jpg"
+            src="/screenshots/portrait2.jpg"
             alt="Portrait"
             className="w-full h-full object-cover grayscale transition-transform duration-500 hover:scale-105"
           />

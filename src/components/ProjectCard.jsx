@@ -12,9 +12,9 @@ export default function ProjectCard({
   const [expanded, setExpanded] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  // Open modal on image click without toggling expanded state
+
   function openModal(index, e) {
-    e.stopPropagation(); // Prevent card toggle
+    e.stopPropagation();
     setCurrentIndex(index);
     setModalOpen(true);
   }
@@ -36,30 +36,30 @@ export default function ProjectCard({
   return (
     <>
       <div
-        className={`bg-gray-900 text-white rounded-lg p-8 shadow-lg w-full max-w-none min-h-[350px] cursor-pointer transition-transform duration-300 hover:scale-105 ${
+        className={`bg-gray-100 text-gray-800 rounded-lg p-8 shadow-md w-full cursor-pointer transition-transform duration-300 hover:scale-105 ${
           expanded ? "min-h-[600px]" : "min-h-[350px]"
         }`}
         onClick={() => setExpanded(!expanded)}
       >
         <h3 className="text-3xl font-bold mb-6">{title}</h3>
 
-        <div className="flex justify-center">
-          <div className="inline-flex -space-x-8 items-center overflow-hidden">
-            {images.map((src, i) => (
-              <div
-                key={i}
-                className="relative w-48 h-40 rounded-lg overflow-hidden shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-110"
-                style={{ zIndex: images.length - i }}
-                onClick={(e) => openModal(i, e)}
-              >
-                <img
-                  src={src}
-                  alt={`${title} screenshot ${i + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-3 gap-4 justify-items-center">
+          {images.map((src, i) => (
+            <div
+              key={i}
+              className={`relative w-50 h-50 rounded-lg overflow-hidden shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-110
+                ${i === 0 ? "rotate-[-3deg] translate-y-2" : ""}
+                ${i === 1 ? "rotate-[2deg]" : ""}
+                ${i === 2 ? "rotate-[-1deg] -translate-y-2" : ""}`}
+              onClick={(e) => openModal(i, e)}
+            >
+              <img
+                src={src}
+                alt={`${title} screenshot ${i + 1}`}
+                className="w-full h-full object-cover max-h-[300px]"
+              />
+            </div>
+          ))}
         </div>
 
         {expanded && (
@@ -79,7 +79,7 @@ export default function ProjectCard({
                   href={githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-gray-300"
+                  className="underline hover:text-gray-600"
                   onClick={(e) => e.stopPropagation()}
                 >
                   GitHub
@@ -90,7 +90,7 @@ export default function ProjectCard({
                   href={liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-gray-300"
+                  className="underline hover:text-gray-600"
                   onClick={(e) => e.stopPropagation()}
                 >
                   Live Demo
@@ -101,7 +101,7 @@ export default function ProjectCard({
         )}
       </div>
 
-      {/* Modal Overlay */}
+      {/* Modal */}
       {modalOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
@@ -116,7 +116,6 @@ export default function ProjectCard({
               alt={`${title} large screenshot ${currentIndex + 1}`}
               className="w-full max-h-[70vh] object-contain rounded-md"
             />
-            {/* Close button */}
             <button
               onClick={closeModal}
               className="absolute top-3 right-3 text-white text-3xl font-bold hover:text-gray-400"
@@ -124,8 +123,6 @@ export default function ProjectCard({
             >
               &times;
             </button>
-
-            {/* Navigation */}
             <button
               onClick={prevImage}
               className="absolute top-1/2 left-3 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-gray-400"

@@ -38,6 +38,14 @@ function Header() {
           </li>
           <li>
             <a
+              href="#cvsection"
+              className="hover:text-gray-900 transition-colors duration-200"
+            >
+              CV
+            </a>
+          </li>
+          <li>
+            <a
               href="#footer"
               className="hover:text-gray-900 transition-colors duration-200"
             >

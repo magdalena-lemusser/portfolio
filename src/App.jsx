@@ -5,6 +5,7 @@ import APropos from "./components/APropos";
 import Skills from "./components/Skills";
 import Projets from "./components/Projets";
 import Footer from "./components/Footer";
+import CVSection from "./components/Curriculum";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </section>
         <section id="projets">
           <Projets />
+        </section>
+        <section id="cvsection">
+          <CVSection />
         </section>
       </main>
       <Footer />
