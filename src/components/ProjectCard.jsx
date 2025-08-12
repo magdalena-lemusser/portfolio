@@ -1,0 +1,148 @@
+import { useState } from "react";
+
+export default function ProjectCard({
+  title,
+  images,
+  description,
+  challenges,
+  skills,
+  githubLink,
+  liveLink,
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  // Open modal on image click without toggling expanded state
+  function openModal(index, e) {
+    e.stopPropagation(); // Prevent card toggle
+    setCurrentIndex(index);
+    setModalOpen(true);
+  }
+
+  function closeModal() {
+    setModalOpen(false);
+  }
+
+  function prevImage(e) {
+    e.stopPropagation();
+    setCurrentIndex((currentIndex - 1 + images.length) % images.length);
+  }
+
+  function nextImage(e) {
+    e.stopPropagation();
+    setCurrentIndex((currentIndex + 1) % images.length);
+  }
+
+  return (
+    <>
+      <div
+        className={`bg-gray-900 text-white rounded-lg p-8 shadow-lg w-full max-w-none min-h-[350px] cursor-pointer transition-transform duration-300 hover:scale-105 ${
+          expanded ? "min-h-[600px]" : "min-h-[350px]"
+        }`}
+        onClick={() => setExpanded(!expanded)}
+      >
+        <h3 className="text-3xl font-bold mb-6">{title}</h3>
+
+        <div className="flex justify-center">
+          <div className="inline-flex -space-x-8 items-center overflow-hidden">
+            {images.map((src, i) => (
+              <div
+                key={i}
+                className="relative w-48 h-40 rounded-lg overflow-hidden shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-110"
+                style={{ zIndex: images.length - i }}
+                onClick={(e) => openModal(i, e)}
+              >
+                <img
+                  src={src}
+                  alt={`${title} screenshot ${i + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {expanded && (
+          <div className="mt-8 space-y-4">
+            <p>
+              <strong>Description:</strong> {description}
+            </p>
+            <p>
+              <strong>Problématiques rencontrées:</strong> {challenges}
+            </p>
+            <p>
+              <strong>Compétences développées:</strong> {skills}
+            </p>
+            <div className="flex space-x-4 mt-4">
+              {githubLink && (
+                <a
+                  href={githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gray-300"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  GitHub
+                </a>
+              )}
+              {liveLink && (
+                <a
+                  href={liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gray-300"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Live Demo
+                </a>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Modal Overlay */}
+      {modalOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={closeModal}
+        >
+          <div
+            className="relative max-w-4xl max-h-[80vh] w-full bg-gray-900 rounded-lg p-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={images[currentIndex]}
+              alt={`${title} large screenshot ${currentIndex + 1}`}
+              className="w-full max-h-[70vh] object-contain rounded-md"
+            />
+            {/* Close button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-3 right-3 text-white text-3xl font-bold hover:text-gray-400"
+              aria-label="Close modal"
+            >
+              &times;
+            </button>
+
+            {/* Navigation */}
+            <button
+              onClick={prevImage}
+              className="absolute top-1/2 left-3 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-gray-400"
+              aria-label="Previous image"
+            >
+              &#8249;
+            </button>
+            <button
+              onClick={nextImage}
+              className="absolute top-1/2 right-3 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-gray-400"
+              aria-label="Next image"
+            >
+              &#8250;
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
