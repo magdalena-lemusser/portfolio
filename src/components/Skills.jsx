@@ -1,6 +1,4 @@
-// src/components/Skills.jsx
 export default function Skills() {
-  // URLs for logos (can be replaced with your own images)
   const skills = [
     {
       name: "HTML",
@@ -43,22 +41,44 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="min-h-screen bg-gray-50 flex flex-col items-center justify-center py-16 px-4"
+      className="min-h-screen bg-gray-50 py-16 px-6 flex items-center"
     >
-      <h2 className="text-4xl font-bold mb-12">Compétences</h2>
-      <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-8 max-w-5xl w-full">
-        {skills.map(({ name, logo }) => (
-          <div key={name} className="flex flex-col items-center space-y-2">
-            <img
-              src={logo}
-              alt={`${name} logo`}
-              className="w-16 h-16 object-contain"
-            />
-            <p className="text-center text-sm font-medium text-gray-700">
-              {name}
-            </p>
-          </div>
-        ))}
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[40%_60%] gap-12">
+        {/* Left Column: logos in multiple columns */}
+        <div className="grid grid-cols-3 gap-6 order-2 lg:order-1">
+          {skills.map(({ name, logo }, index) => (
+            <div
+              key={name}
+              className={`flex flex-col items-center space-y-2 transform transition-transform duration-300 hover:scale-110 hover:shadow-lg rounded-lg
+                ${index % 2 === 0 ? "translate-y-0" : "translate-y-4"}`}
+            >
+              <div className="bg-gray-100 p-4 rounded-full shadow-inner">
+                <img
+                  src={logo}
+                  alt={`${name} logo`}
+                  className="w-16 h-16 object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <p className="text-center text-sm font-medium text-gray-700">
+                {name}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Right Column: title + text */}
+        <div className="flex flex-col justify-center order-1 lg:order-2">
+          <h2 className="text-4xl font-bold mb-4 text-gray-800 relative inline-block">
+            Compétences
+            <span className="block h-0.5 bg-gray-300 mt-2 w-24 rounded"></span>
+          </h2>
+
+          <p className="max-w-md text-gray-600">
+            Voici quelques-unes des technologies et outils avec lesquels j'aime
+            travailler, en combinant savoir-faire technique et créativité.
+          </p>
+        </div>
       </div>
     </section>
   );
