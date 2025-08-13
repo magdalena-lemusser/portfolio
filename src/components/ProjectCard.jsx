@@ -47,10 +47,10 @@ export default function ProjectCard({
           {images.map((src, i) => (
             <div
               key={i}
-              className={`relative w-50 h-50 rounded-lg overflow-hidden shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-110
-                ${i === 0 ? "rotate-[-3deg] translate-y-2" : ""}
-                ${i === 1 ? "rotate-[2deg]" : ""}
-                ${i === 2 ? "rotate-[-1deg] -translate-y-2" : ""}`}
+              className={`relative w-36 h-36 sm:w-40 sm:h-40 md:w-50 md:h-50 rounded-lg overflow-hidden shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-110
+        ${i === 0 ? "rotate-[-3deg] translate-y-2" : ""}
+        ${i === 1 ? "rotate-[2deg]" : ""}
+        ${i === 2 ? "rotate-[-1deg] -translate-y-2" : ""}`}
               onClick={(e) => openModal(i, e)}
             >
               <img
@@ -118,21 +118,21 @@ export default function ProjectCard({
             />
             <button
               onClick={closeModal}
-              className="absolute top-3 right-3 text-[#2d3748] text-3xl font-bold hover:text-gray-500"
+              className="absolute top-3 right-3 text-gray-200 text-3xl font-bold hover:text-gray-500"
               aria-label="Close modal"
             >
               &times;
             </button>
             <button
               onClick={prevImage}
-              className="absolute top-1/2 left-3 transform -translate-y-1/2 text-[#2d3748] text-4xl font-bold hover:text-gray-500"
+              className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-200 text-4xl font-bold hover:text-gray-500"
               aria-label="Previous image"
             >
               &#8249;
             </button>
             <button
               onClick={nextImage}
-              className="absolute top-1/2 right-3 transform -translate-y-1/2 text-[#2d3748] text-4xl font-bold hover:text-gray-500"
+              className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-200 text-4xl font-bold hover:text-gray-500"
               aria-label="Next image"
             >
               &#8250;

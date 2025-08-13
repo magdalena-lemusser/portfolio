@@ -1,61 +1,60 @@
-function Header() {
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Accueil", href: "#accueil" },
+    { name: "Projets", href: "#projets" },
+    { name: "Portfolio", href: "#portfolio" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
-    <header className="w-full bg-white text-gray-700 shadow-sm fixed top-0 left-0 z-50">
-      <nav className="container mx-auto flex justify-between items-center p-4">
-        <div className="font-bold text-xl">Mon Portfolio</div>
-        <ul className="flex space-x-6">
-          <li>
+    <header className="bg-gray-50 text-gray-800 shadow-sm border-b border-gray-200">
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        {/* Logo / Title */}
+        <h1 className="text-base font-semibold tracking-wide">Portfolio</h1>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex space-x-6">
+          {navLinks.map((link) => (
             <a
-              href="#accueil"
-              className="hover:text-gray-900 transition-colors duration-200"
+              key={link.name}
+              href={link.href}
+              className="hover:text-gray-600 transition-colors duration-200"
             >
-              Accueil
+              {link.name}
             </a>
-          </li>
-          <li>
+          ))}
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={26} /> : <Menu size={26} />}
+        </button>
+      </div>
+
+      {/* Mobile Nav */}
+      {isOpen && (
+        <nav className="md:hidden bg-gray-100 px-4 pb-4 space-y-2 border-t border-gray-200">
+          {navLinks.map((link) => (
             <a
-              href="#apropos"
-              className="hover:text-gray-900 transition-colors duration-200"
+              key={link.name}
+              href={link.href}
+              className="block hover:text-gray-600 transition-colors duration-200"
+              onClick={() => setIsOpen(false)}
             >
-              À propos
+              {link.name}
             </a>
-          </li>
-          <li>
-            <a
-              href="#skills"
-              className="hover:text-gray-900 transition-colors duration-200"
-            >
-              Compétences
-            </a>
-          </li>
-          <li>
-            <a
-              href="#projets"
-              className="hover:text-gray-900 transition-colors duration-200"
-            >
-              Projets
-            </a>
-          </li>
-          <li>
-            <a
-              href="#cvsection"
-              className="hover:text-gray-900 transition-colors duration-200"
-            >
-              CV
-            </a>
-          </li>
-          <li>
-            <a
-              href="#footer"
-              className="hover:text-gray-900 transition-colors duration-200"
-            >
-              Contact
-            </a>
-          </li>
-        </ul>
-      </nav>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }
-
-export default Header;

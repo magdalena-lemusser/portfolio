@@ -16,7 +16,7 @@ export default function Accueil() {
         transition={{ duration: 0.6 }}
         className="text-5xl font-extrabold mb-4 tracking-widest text-gray-800 text-center max-w-xl"
       >
-        Magdalena Lemus PhD
+        Magdalena Lemus Serrano - PhD.
       </MotionH1>
 
       <div className="w-24 h-1 bg-gradient-to-r from-gray-600 to-gray-400 rounded mb-6"></div>
