@@ -4,20 +4,21 @@ const MotionDiv = motion.div;
 export default function CVSection() {
   const timelineData = [
     {
-      title: "PhD Linguistics",
-      date: "2015 - 2019",
+      title: "Developpeur Web Full-stack (RNCP5)",
+      date: "2025",
       description:
-        "Doctorat en linguistique, spécialisation en analyse du discours.",
+        "6 mois intensifs en développement web full-stack chez OpenClassrooms.",
     },
     {
-      title: "Master in Japanese",
-      date: "2013 - 2015",
+      title: "PhD Linguistique",
+      date: "2016 - 2020",
+      description:
+        "Doctorat en linguistique, spécialisation en typologie linguistique.",
+    },
+    {
+      title: "Master Etudes Japonaises",
+      date: "2014",
       description: "Études approfondies en langue et culture japonaises.",
-    },
-    {
-      title: "Full-Stack Programming Course",
-      date: "2024",
-      description: "6 mois intensifs en développement web full-stack.",
     },
   ];
 
