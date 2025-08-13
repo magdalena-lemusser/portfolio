@@ -15,8 +15,7 @@ export default function Projets() {
         "L’un des principaux défis a été d’assurer la sécurité des données tout en permettant une gestion fluide des livres et des notations. J’ai dû mettre en place un système d’authentification robuste, optimiser le traitement des images et structurer le code selon le modèle MVC. Le respect des bonnes pratiques du Green Code a également nécessité une réflexion sur les requêtes et le stockage.",
       skills:
         "Express, Node.js, MongoDB, Mongoose, MVC, Sécurité, Green Code, Git",
-      githubLink: "https://github.com/magdalena/projet1",
-      liveLink: "https://projet1.demo.com",
+      githubLink: "https://github.com/magdalena-lemusser/projet6-backend.git",
     },
     {
       title: "Application immobilière Kasa - REACT",
@@ -31,7 +30,7 @@ export default function Projets() {
         "Création de composants réutilisables capables de s’adapter à différentes structures de données transmises via props, mise en place d’animations compatibles avec le responsive design, gestion d’états complexes avec React (incluant le levage d’état et la synchronisation entre composants).",
       skills: "React, Vite, Sass",
       githubLink: "https://github.com/magdalena-lemusser/my-react-app",
-      liveLink: "https://projet1.demo.com",
+      liveLink: "https://my-react-app-eight-virid.vercel.app/",
     },
   ];
   return (
