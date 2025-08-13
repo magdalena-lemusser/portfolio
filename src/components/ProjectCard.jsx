@@ -104,11 +104,11 @@ export default function ProjectCard({
       {/* Modal */}
       {modalOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
           onClick={closeModal}
         >
           <div
-            className="relative max-w-4xl max-h-[80vh] w-full bg-gray-900 rounded-lg p-4"
+            className="relative max-w-4xl max-h-[80vh] w-full bg-white rounded-lg shadow-lg p-4 border border-gray-200"
             onClick={(e) => e.stopPropagation()}
           >
             <img
@@ -118,21 +118,21 @@ export default function ProjectCard({
             />
             <button
               onClick={closeModal}
-              className="absolute top-3 right-3 text-white text-3xl font-bold hover:text-gray-400"
+              className="absolute top-3 right-3 text-[#2d3748] text-3xl font-bold hover:text-gray-500"
               aria-label="Close modal"
             >
               &times;
             </button>
             <button
               onClick={prevImage}
-              className="absolute top-1/2 left-3 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-gray-400"
+              className="absolute top-1/2 left-3 transform -translate-y-1/2 text-[#2d3748] text-4xl font-bold hover:text-gray-500"
               aria-label="Previous image"
             >
               &#8249;
             </button>
             <button
               onClick={nextImage}
-              className="absolute top-1/2 right-3 transform -translate-y-1/2 text-white text-4xl font-bold hover:text-gray-400"
+              className="absolute top-1/2 right-3 transform -translate-y-1/2 text-[#2d3748] text-4xl font-bold hover:text-gray-500"
               aria-label="Next image"
             >
               &#8250;
