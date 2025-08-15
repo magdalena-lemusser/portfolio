@@ -6,6 +6,7 @@ import Skills from "./components/Skills";
 import Projets from "./components/Projets";
 import Footer from "./components/Footer";
 import CVSection from "./components/Curriculum";
+import PublicationsSection from "./components/Publications";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
         </section>
         <section id="projets">
           <Projets />
+        </section>
+        <section id="publications">
+          <PublicationsSection />
         </section>
         <section id="cvsection">
           <CVSection />
