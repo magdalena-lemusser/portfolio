@@ -1,6 +1,3 @@
-import { motion } from "framer-motion";
-const MotionDiv = motion.div;
-
 export default function APropos() {
   return (
     <section
@@ -18,12 +15,7 @@ export default function APropos() {
 
       {/* Contenu centré */}
       <div className="relative max-w-4xl mx-auto px-6">
-        <MotionDiv
-          className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg p-8 md:p-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg p-8 md:p-12">
           <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
             À propos de moi
             <span className="block mx-auto mt-2 h-1 w-16 bg-gradient-to-r from-gray-600 to-gray-400 rounded-full"></span>
@@ -42,7 +34,7 @@ export default function APropos() {
             développement d’outils innovants, ainsi qu’à la diffusion accessible
             des connaissances auprès du grand public.
           </p>
-        </MotionDiv>
+        </div>
       </div>
     </section>
   );
