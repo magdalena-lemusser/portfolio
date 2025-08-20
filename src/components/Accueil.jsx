@@ -31,7 +31,7 @@ export default function Accueil() {
       </MotionP>
 
       <MotionA
-        href="mailto:magdalena@example.com"
+        href="mailto:magdalena.lemusser@gmail.com"
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.5 }}
